@@ -1,0 +1,99 @@
+/* 
+    Document   : style
+    Created on : Apr 26, 2012, 11:01:57 AM
+    Author     : mike_newell
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-weight:inherit;
+    font-style:inherit;
+    font-size:100%;
+    font-family:inherit;
+    vertical-align:baseline
+}
+body {
+/*    font-family: 'Yanone Kaffeesatz', sans-serif;*/
+    font-family: futura, sans-serif;
+    background-color: #323232;
+/*	margin:20px;*/
+    font-weight:thin;
+    letter-spacing:0.0em;
+    color: #fbfbfb;
+}
+
+header, footer, section, article, aside {
+    display: block;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 23.5px;
+    font-weight: lighter;
+    padding-bottom: 45px;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 13.5px;
+    font-weight: lighter;
+}
+
+h4 {
+    font-size: 11.5px;
+    font-weight: lighter;
+}
+
+/*******************************************************************************
+                                    STRUCTURE
+*******************************************************************************/
+
+#wrap {
+    background: url(../images/frenemy/background.png) 107px 76px scroll no-repeat black;
+    width: 810px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 821px
+}
+
+#foreground {
+    background: url(../images/frenemy/foreground.png) 0px 0px scroll no-repeat transparent;
+    width: 810px;
+    min-height: 841px;
+    position: absolute;
+}
+
+
+#translator-window {
+    position: absolute;
+    top: 77px;
+    left: 107px;
+}
+
+#fangs {
+    background: url(../images/frenemy/fangs.png) scroll no-repeat transparent;
+    width: 810px;
+    height: 40px;
+    position: absolute;
+    top: 450px;
+    left: 0;
+}
+
