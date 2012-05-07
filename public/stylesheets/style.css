@@ -71,7 +71,8 @@ h4 {
     width: 810px;
     margin: 0 auto;
     position: relative;
-    min-height: 821px
+    min-height: 821px;
+    left: -50px;
 }
 
 #foreground {
