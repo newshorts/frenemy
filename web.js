@@ -90,7 +90,7 @@ function handle_facebook_request(req, res) {
           cb();
         });
       }
-    ], function() {
+    ], function() { // callback
       render_page(req, res);
     });
 
