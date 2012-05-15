@@ -37,3 +37,9 @@ If you prefer to deploy yourself, push this code to a new Heroku app on the Ceda
 
 Enter the URL for your Heroku app into the Website URL section of the Facebook app settings page, hen you can visit your app on the web.
 
+################################################################################
+            WHAT I HAVE NOW IS A PERFECT TEMPLATE FOR FUTURE APPS
+################################################################################
+
+in web.js you can see hooks for get requests at the bottom of the page. These are
+passed to functions that handle the request and finally server the page. Awesome.

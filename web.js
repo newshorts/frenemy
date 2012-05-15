@@ -43,6 +43,7 @@ app.dynamicHelpers({
   }
 });
 
+// render
 function render_page(req, res, tmpl) {
 
     tmpl = tmpl || 'frenemy.ejs';
@@ -60,6 +61,7 @@ function render_page(req, res, tmpl) {
 
 }
 
+// handle requests
 function handle_translator_request(req, res) {
     render_page(req, res, 'translator.ejs');
 }
@@ -108,6 +110,7 @@ function handle_facebook_request(req, res) {
   
 }
 
+// hooks
 app.get('/', handle_facebook_request);
 app.get('/translator', handle_translator_request);
 app.post('/', handle_facebook_request);
