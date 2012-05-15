@@ -1,0 +1,67 @@
+/*******************************************************************************
+                                    Zoomer
+*******************************************************************************/
+
+#zoomer {
+    position: absolute;
+    width: 621px;
+/*    height: 729px;*/
+    height: 373px;
+/*    height: 403px;*/
+    top: 0px;
+    left: 0px;
+    cursor: none;
+}
+
+.small-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.big-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 621px;
+    height: 729px;
+}
+
+.big-window {
+    position: absolute;  /* this breaks overflow: hidden in webkit (chrome/safari)*/ 
+    opacity: 0;
+    
+    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+
+    overflow: hidden;
+    
+    transition: opacity .4s;
+    -moz-transition: opacity .4s;
+    -webkit-transition: opacity .4s;
+    -o-transition: opacity .4s;
+}
+
+#mag {
+    opacity: 0;
+    width: 134px;
+    position: absolute;
+    
+    transition: opacity .4s;
+    -moz-transition: opacity .4s;
+    -webkit-transition: opacity .4s;
+    -o-transition: opacity .4s;
+}
+
+/*******************************************************************************
+                                    JSCROLLPANE
+*******************************************************************************/
+
+#zoomer {
+    overflow: auto;
+}
+
+#zoomer-spacer {
+    height: 729px;
+}
+
+

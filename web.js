@@ -43,17 +43,25 @@ app.dynamicHelpers({
   }
 });
 
-function render_page(req, res) {
-  req.facebook.app(function(app) {
-    req.facebook.me(function(user) {
-      res.render('frenemy.ejs', {
-        layout:    false,
-        req:       req,
-        app:       app,
-        user:      user
-      });
+function render_page(req, res, tmpl) {
+
+    tmpl = tmpl || 'frenemy.ejs';
+
+    req.facebook.app(function(app) {
+        req.facebook.me(function(user) {
+            res.render(tmpl, {
+                layout:    false,
+                req:       req,
+                app:       app,
+                user:      user
+            });
+        });
     });
-  });
+
+}
+
+function handle_translator_request(req, res) {
+    render_page(req, res, 'translator.ejs');
 }
 
 function handle_facebook_request(req, res) {
@@ -97,7 +105,9 @@ function handle_facebook_request(req, res) {
   } else {
     render_page(req, res);
   }
+  
 }
 
 app.get('/', handle_facebook_request);
+app.get('/translator', handle_translator_request);
 app.post('/', handle_facebook_request);

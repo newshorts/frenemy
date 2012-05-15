@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+
+    <title><%= app.name %></title>
+    
+    <link type="text/css" href="stylesheets/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/translator.css" />
+
+  </head>
+  <body>
+    <div id="zoomer">
+
+        <div class="small-window">
+            <img class="small-image" src="images/frenemy/friend.png" alt="small lorizzle" />
+        </div>
+
+        <div class="big-window">
+            <img class="big-image" src="images/frenemy/enemy.png" alt="big lorizzle" />
+        </div>
+
+        <img src="images/frenemy/translator.png" alt="" id="mag" />
+
+        <div id="zoomer-spacer"></div>
+
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write("<script src='scripts/jquery-1.7.1.min.js'>\x3C/script>")</script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="scripts/mwheelIntent.js"></script>
+    <script type="text/javascript" src="scripts/jquery.jscrollpane.min.js"></script>
+    <script>
+        (function($) {
+
+            $(window).load(function() {
+
+                App.init();
+
+                $('#zoomer').jScrollPane();
+
+                // grab the elements and do some calculations on the size of the "porthole", then set the porthole
+                var zoomerG = $('#zoomer');
+                var portholeG = $('.big-window');
+                var secondImageG = $('.big-image');
+                var magImageG = $('#mag');
+                var diameterG = 89;
+                var radiusG = diameterG / 2;
+                var oPaneG = 0;
+                // get the page offsets (since we centered our #zoomer)
+                var oLeftG = zoomerG.offset().left;
+                var oTopG = zoomerG.offset().top;
+
+                portholeG.css({
+                    width: diameterG,
+                    height: diameterG,
+                    'border-radius': radiusG + 'px',
+                    '-moz-border-radius': radiusG + 'px',
+                    '-webkit-border-radius': radiusG + 'px',
+                    '-o-border-radius': radiusG + 'px'
+                });
+
+                // if the user scrolls, adjust the pane offset to match the new
+                // scroll (this is because we can't watch the regular top offset
+                // anymore)
+                zoomerG.scroll(function(evt) {
+                    var pane = $('.jspPane');
+                    oPaneG = pane.position().top;
+                });
+
+                // as soon as someone starts moving the mouse over #zoomer
+                zoomerG.on('mousemove', function(evt) {
+
+                    var zoomer = zoomerG,
+                        porthole = portholeG,
+                        secondImage = secondImageG,
+                        magImage = magImageG,
+                        diameter = diameterG,
+                        radius = radiusG,
+                        oPane = oPaneG,
+                        oLeft = oLeftG,
+                        oTop = oTopG;
+
+//                    console.debug(oPane);
+
+                    // get the position of the mouse over #zoomer
+                    var posLeft = (evt.pageX - oLeft);
+                    var posTop = ((evt.pageY - oTop) - oPane);
+
+                    // detect whether or not the mouse has moved past the left or right barriers of #zoomer
+                    var limitLeft = ((posLeft - radius) > - radius) ? false : true;
+                    var limitRight = ((posLeft + radius) < (621 + radius)) ? false : true;
+
+                    // if we're in bounds of #zoomer
+                    if(!limitLeft && !limitRight) {
+
+                        // account for the radius of the "porthole"
+                        var posTop = posTop - radius;
+                        var posLeft = posLeft - radius;
+
+                        // move the porthole to the mouse's position
+                        porthole.css({
+                            top: posTop,
+                            left: posLeft,
+                            opacity: 1
+                        });
+
+                        // adjust the second image so it moves opposite the mouse movement (so it looks like its staying still)
+                        secondImage.css({
+                            top: -1 * (posTop),
+                            left: -1 * (posLeft)
+                        });
+
+                        // move the magnifying glass with the mouse
+                        magImage.css({
+                            top: posTop - 10,
+                            left: posLeft - 30,
+                            opacity: 1
+                        });
+
+                    } 
+
+                });
+
+                zoomerG.on('mouseout', function(evt) {
+                    // fade the porthole out
+                        portholeG.css({
+                            opacity: 0
+                        });
+
+                        // fade the magnifying glass out
+                        magImageG.css({
+                            opacity: 0
+                        });
+                });
+
+            });
+
+
+
+        })(jQuery);
+    </script>
+  </body>
+</html>
+
