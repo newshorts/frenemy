@@ -133,6 +133,12 @@
     <div id="wrap">
             
         <div id="foreground"></div>
+        
+        <div id="toggle">
+            <img class="toggle toggle-on" src="images/frenemy/translator_on.png" />
+            <img class="toggle toggle-off" src="images/frenemy/translator_off.png" />
+            <a href="#" class="toggle-click"></a>
+        </div>
 
         <iframe id="translator-window" src="translator" width="621" height="413"></iframe>
 
@@ -140,9 +146,32 @@
 
     </div>
 
-    
-
-    
+    <script type="text/javascript">
+        (function($) {
+            $(window).load(function() {
+                var off = true;
+                var z = $("#translator-window").contents().find("#zoomer");
+                $('.toggle-click').click(function() {
+                    
+                    var zoomer = z;
+                    // chrome doesnt fade out mouse sometimes
+                    if(off) {
+                        zoomer.css({'cursor' : 'none'});
+                    } else {
+                        zoomer.css({'cursor' : 'default'});
+                    }
+                    
+                    $('.toggle-off').toggle();
+                    $("#translator-window").contents().find("#mag").toggle();
+                    $("#translator-window").contents().find(".big-window").toggle();
+                    
+                    off = (off) ? false : true;
+                    
+                });
+                
+            });
+        })(jQuery);
+    </script>
   </body>
 </html>
 

@@ -5,26 +5,28 @@
 #zoomer {
     position: absolute;
     width: 621px;
-/*    height: 729px;*/
-    height: 399px;
+/*    height: 934px;*/
+/*    height: 399px;*/
 /*    height: 403px;*/
+    height: 412px;
     top: 0px;
     left: 0px;
-    cursor: none;
 }
 
 .small-image {
     position: absolute;
     top: 0;
     left: 0;
+/*    width: 625px;
+    height: 934px;*/
 }
 
 .big-image {
     position: absolute;
-    top: 0;
+    top: 0px;
     left: 0;
-    width: 621px;
-    height: 729px;
+    width: 625px;
+    height: 934px;
 }
 
 .big-window {
@@ -50,6 +52,8 @@
     -moz-transition: opacity .4s;
     -webkit-transition: opacity .4s;
     -o-transition: opacity .4s;
+    
+    cursor: none;
 }
 
 /*******************************************************************************
@@ -61,7 +65,14 @@
 }
 
 #zoomer-spacer {
-    height: 729px;
+    height: 934px;
 }
 
 
+/*******************************************************************************
+                                    UTILITY
+*******************************************************************************/
+
+.hidden {
+    display: none;
+}

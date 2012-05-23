@@ -81,7 +81,31 @@ h4 {
     min-height: 841px;
     position: absolute;
 }
+    
+#toggle {
+    background: url(../images/frenemy/toggle-label.png) 0px 5px scroll no-repeat transparent;
+    width: 130px;
+    height: 25px;
+    position: relative;
+    top: 35px;
+    left: 605px;
+}  
 
+.toggle {
+    position: absolute;
+    width: 150px;
+    top: -10px;
+    left: 32px;
+}
+
+.toggle-click {
+    display: block;
+    position: absolute;
+    width: 45px;
+    height: 20px;
+    top: 2px;
+    left: 86px;=
+}
 
 #translator-window {
     position: absolute;

@@ -43,3 +43,10 @@ Enter the URL for your Heroku app into the Website URL section of the Facebook a
 
 in web.js you can see hooks for get requests at the bottom of the page. These are
 passed to functions that handle the request and finally server the page. Awesome.
+
+################################################################################
+                                    TODO
+################################################################################
+
+1. Fix safari bug that denies border radius in safari
+2. Chrome has bug where mouse cursor stays active if you hover over #zoomer immediately after clicking toggle

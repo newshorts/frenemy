@@ -17,11 +17,11 @@
             <img class="small-image" src="images/frenemy/friend.png" alt="small lorizzle" />
         </div>
 
-        <div class="big-window">
+        <div class="big-window hidden">
             <img class="big-image" src="images/frenemy/enemy.png" alt="big lorizzle" />
         </div>
 
-        <img src="images/frenemy/translator.png" alt="" id="mag" />
+        <img src="images/frenemy/translator-green.png" alt="" id="mag" class="hidden" />
 
         <div id="zoomer-spacer"></div>
 
@@ -38,7 +38,8 @@
             $(window).load(function() {
 
                 App.init();
-
+                
+                console.debug("init jscrollpane");
                 $('#zoomer').jScrollPane();
 
                 // grab the elements and do some calculations on the size of the "porthole", then set the porthole
@@ -52,14 +53,15 @@
                 // get the page offsets (since we centered our #zoomer)
                 var oLeftG = zoomerG.offset().left;
                 var oTopG = zoomerG.offset().top;
-
+                
+                // doesn't work in safari
                 portholeG.css({
                     width: diameterG,
                     height: diameterG,
-                    'border-radius': radiusG + 'px',
-                    '-moz-border-radius': radiusG + 'px',
-                    '-webkit-border-radius': radiusG + 'px',
-                    '-o-border-radius': radiusG + 'px'
+                    "border-radius": radiusG + 'px',
+                    "-moz-border-radius": radiusG + 'px',
+                    "-webkit-border-radius": radiusG + 'px',
+                    "-o-border-radius": radiusG + 'px'
                 });
 
                 // if the user scrolls, adjust the pane offset to match the new
@@ -87,11 +89,11 @@
 
                     // get the position of the mouse over #zoomer
                     var posLeft = (evt.pageX - oLeft);
-                    var posTop = ((evt.pageY - oTop) - oPane);
+                    var posTop = (((evt.pageY - oTop) - oPane));
 
                     // detect whether or not the mouse has moved past the left or right barriers of #zoomer
                     var limitLeft = ((posLeft - radius) > - radius) ? false : true;
-                    var limitRight = ((posLeft + radius) < (621 + radius)) ? false : true;
+                    var limitRight = ((posLeft + radius) < (625 + radius)) ? false : true;
 
                     // if we're in bounds of #zoomer
                     if(!limitLeft && !limitRight) {
@@ -115,8 +117,8 @@
 
                         // move the magnifying glass with the mouse
                         magImage.css({
-                            top: posTop - 10,
-                            left: posLeft - 30,
+                            top: posTop - 12,
+                            left: posLeft - 27,
                             opacity: 1
                         });
 
@@ -134,13 +136,13 @@
                         magImageG.css({
                             opacity: 0
                         });
+                        
                 });
 
             });
-
-
-
+            
         })(jQuery);
+        
     </script>
   </body>
 </html>
