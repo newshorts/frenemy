@@ -132,7 +132,7 @@
 
     <div id="wrap">
             
-        <div id="foreground"></div>
+        <div id="foreground" class="no-weapons"></div>
         
         <div id="toggle">
             <img class="toggle toggle-on" src="images/frenemy/translator_on.png" />
@@ -150,15 +150,26 @@
         (function($) {
             $(window).load(function() {
                 var off = true;
+                
+                // lazy load some images
+                $('#wrap').prepend('<img src="images/frenemy/foreground-weapons.png" style="opacity: 0; position: absolute; top: 0; left: 0; z-index: -1;"/>');
+                
+                // events
+                
                 var z = $("#translator-window").contents().find("#zoomer");
+                var f = $("#foreground");
                 $('.toggle-click').click(function() {
                     
                     var zoomer = z;
                     // chrome doesnt fade out mouse sometimes
                     if(off) {
                         zoomer.css({'cursor' : 'none'});
+                        f.removeClass('no-weapons');
+                        f.addClass('weapons');
                     } else {
                         zoomer.css({'cursor' : 'default'});
+                        f.removeClass('weapons');
+                        f.addClass('no-weapons');
                     }
                     
                     $('.toggle-off').toggle();
