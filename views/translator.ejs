@@ -21,7 +21,7 @@
             <img class="big-image" src="images/frenemy/enemy.png" alt="big lorizzle" />
         </div>
 
-        <img src="images/frenemy/translator-green.png" alt="" id="mag" class="hidden" />
+        <img src="images/frenemy/translator-square.png" alt="" id="mag" class="hidden" />
 
         <div id="zoomer-spacer"></div>
 
@@ -55,13 +55,16 @@
                 var oTopG = zoomerG.offset().top;
                 
                 // doesn't work in safari
+                // porthole is smaller than the image becuase its the inner border
                 portholeG.css({
-                    width: diameterG,
-                    height: diameterG,
-                    "border-radius": radiusG + 'px',
-                    "-moz-border-radius": radiusG + 'px',
-                    "-webkit-border-radius": radiusG + 'px',
-                    "-o-border-radius": radiusG + 'px'
+                    width: 156,
+                    height: 87,
+//                    width: diameterG,
+//                    height: diameterG,
+//                    "border-radius": radiusG + 'px',
+//                    "-moz-border-radius": radiusG + 'px',
+//                    "-webkit-border-radius": radiusG + 'px',
+//                    "-o-border-radius": radiusG + 'px'
                 });
 
                 // if the user scrolls, adjust the pane offset to match the new
@@ -71,6 +74,10 @@
                     var pane = $('.jspPane');
                     oPaneG = pane.position().top;
                     
+                });
+                
+                $('#zoomer').scroll(function(evt) {
+                    console.dir(evt);
                 });
 
                 // as soon as someone starts moving the mouse over #zoomer
@@ -118,8 +125,8 @@
 
                         // move the magnifying glass with the mouse
                         magImage.css({
-                            top: posTop - 12,
-                            left: posLeft - 27,
+                            top: posTop - 14,
+                            left: posLeft - 17,
                             opacity: 1
                         });
 

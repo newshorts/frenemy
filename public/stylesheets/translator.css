@@ -45,7 +45,8 @@
 
 #mag {
     opacity: 0;
-    width: 134px;
+/*    width: 134px;*/
+    width: 183px;
     position: absolute;
     
     transition: opacity .4s;
