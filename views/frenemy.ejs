@@ -158,26 +158,48 @@
                 
                 var z = $("#translator-window").contents().find("#zoomer");
                 var f = $("#foreground");
-                $('.toggle-click').click(function() {
+                
+//                $('.toggle-click').click(function() {
+//                    
+//                    var zoomer = z;
+//                    // chrome doesnt fade out mouse sometimes
+//                    if(off) {
+//                        zoomer.css({'cursor' : 'none'});
+//                        f.removeClass('no-weapons');
+//                        f.addClass('weapons');
+//                    } else {
+//                        zoomer.css({'cursor' : 'default'});
+//                        f.removeClass('weapons');
+//                        f.addClass('no-weapons');
+//                    }
+//                    
+//                    $('.toggle-off').toggle();
+//                    $("#translator-window").contents().find("#mag").toggle();
+//                    $("#translator-window").contents().find(".big-window").toggle();
+//                    
+//                    off = (off) ? false : true;
+//                    
+//                });
+                
+                var zoomer = z;
+                
+                $('#translator-window').hover(function(evt) {
+                    // in
+                    zoomer.css({'cursor' : 'none'});
+                    f.removeClass('no-weapons');
+                    f.addClass('weapons');
                     
-                    var zoomer = z;
-                    // chrome doesnt fade out mouse sometimes
-                    if(off) {
-                        zoomer.css({'cursor' : 'none'});
-                        f.removeClass('no-weapons');
-                        f.addClass('weapons');
-                    } else {
-                        zoomer.css({'cursor' : 'default'});
-                        f.removeClass('weapons');
-                        f.addClass('no-weapons');
-                    }
-                    
-                    $('.toggle-off').toggle();
                     $("#translator-window").contents().find("#mag").toggle();
                     $("#translator-window").contents().find(".big-window").toggle();
                     
-                    off = (off) ? false : true;
+                }, function(evt) {
+                    // out
+                    zoomer.css({'cursor' : 'default'});
+                    f.removeClass('weapons');
+                    f.addClass('no-weapons');
                     
+                    $("#translator-window").contents().find("#mag").toggle();
+                    $("#translator-window").contents().find(".big-window").toggle();
                 });
                 
             });
