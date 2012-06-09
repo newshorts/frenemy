@@ -76,8 +76,11 @@
                     
                 });
                 
-                $('#zoomer').scroll(function(evt) {
-                    console.dir(evt);
+                $(window).scroll(function(evt) {
+                    
+                    var p = $('.small-window').position();
+                    
+                    console.dir(p.top);
                 });
 
                 // as soon as someone starts moving the mouse over #zoomer

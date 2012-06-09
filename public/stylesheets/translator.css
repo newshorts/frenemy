@@ -2,6 +2,10 @@
                                     Zoomer
 *******************************************************************************/
 
+body {
+    
+}
+
 #zoomer {
     position: absolute;
     width: 621px;
@@ -11,6 +15,10 @@
     height: 412px;
     top: 0px;
     left: 0px;
+    
+    
+    
+
 }
 
 .small-image {

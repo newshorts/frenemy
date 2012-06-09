@@ -22,7 +22,8 @@ position: absolute;
 top: 0;
 right: 0;
 /*width: 16px;*/
-width: 8px;
+/*width: 8px;*/
+width: 12px;
 height: 100%;
 background: red;
 }
@@ -100,7 +101,8 @@ position: relative;
     box-shadow:         2px 3px 2px 3px #222;
 
 
-width: 8px;
+/*width: 8px;*/
+width: 12px;
 height: 104px;
 /*background: #bbd;*/
 position: relative;
