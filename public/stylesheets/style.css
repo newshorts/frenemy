@@ -84,25 +84,105 @@ h4 {
     width: 810px;
     min-height: 841px;
     position: absolute;
+    
+/*    background: url(../images/frenemy/foreground.png) 0 0 scroll no-repeat;*/
+    
+/*    transition: opacity 0.4s ease-in 0s;
+    -moz-transition: opacity 0.4s ease-in 0s;
+    -webkit-transition: opacity 0.4s ease-in 0s;
+    -o-transition: opacity 0.4s ease-in 0s;*/
 }
 
-.no-weapons {
-    background: url(../images/frenemy/foreground.png) 0px 0px scroll no-repeat transparent;
+/*#foreground.no-weapons {
     
-    transition: all .4s;
-    -moz-transition: all .4s;
-    -webkit-transition: all .4s;
-    -o-transition: all .4s;
+    animation: weaponAnim1 .4s ease-in 1;
+    -webkit-animation: weaponAnim1 .4s ease-in 1;
+    -moz-animation: weaponAnim1 .4s ease-in 1;
+    -ms-animation: weaponAnim1 .4s ease-in 1;
+}
+    @keyframes weaponAnim1 {
+        0% { background: url(../images/frenemy/foreground-weapons.png) 0 0 scroll no-repeat; }
+        100% { background: url(../images/frenemy/foreground.png) 0 0 scroll no-repeat; }
+    }
+
+    @-webkit-keyframes weaponAnim1 {
+        0% { background: url(../images/frenemy/foreground-weapons.png) 0 0 scroll no-repeat; }
+        100% { background: url(../images/frenemy/foreground.png) 0 0 scroll no-repeat; }
+    }
+
+    @-moz-keyframes weaponAnim1 {
+        0% { background: url(../images/frenemy/foreground-weapons.png) 0 0 scroll no-repeat; }
+        100% { background: url(../images/frenemy/foreground.png) 0 0 scroll no-repeat; }
+    }
+
+    @-ms-keyframes weaponAnim1 {
+        0% { background: url(../images/frenemy/foreground-weapons.png) 0 0 scroll no-repeat; }
+        100% { background: url(../images/frenemy/foreground.png) 0 0 scroll no-repeat; }
+    }
+    
+#foreground.weapons {
+    
+    animation: weaponAnim2 .4s ease-in 1;
+    -webkit-animation: weaponAnim2 .4s ease-in 1;
+    -moz-animation: weaponAnim2 .4s ease-in 1;
+    -ms-animation: weaponAnim2 .4s ease-in 1;
+}
+    @keyframes weaponAnim2 {
+        0% { background-image: url(../images/frenemy/foreground.png); }
+        100% { background-image: url(../images/frenemy/foreground-weapons.png); }
+    }
+
+    @-webkit-keyframes weaponAnim2 {
+        0% { background-image: url(../images/frenemy/foreground.png); }
+        100% { background-image: url(../images/frenemy/foreground-weapons.png); }
+    }
+
+    @-moz-keyframes weaponAnim2 {
+        0% { background-image: url(../images/frenemy/foreground.png); }
+        100% { background-image: url(../images/frenemy/foreground-weapons.png); }
+    }
+
+    @-ms-keyframes weaponAnim2 {
+        0% { background-image: url(../images/frenemy/foreground.png); }
+        100% { background-image: url(../images/frenemy/foreground-weapons.png); }
+    }*/
+#foreground img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+/*    transition: opacity 0.4s ease-in-out;
+    -moz-transition: opacity 0.4s ease-in-out;
+    -webkit-transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;*/
 }
 
-.weapons {
-    background: url(../images/frenemy/foreground-weapons.png) 0px 0px scroll no-repeat transparent;
-    
-    transition: all .4s;
-    -moz-transition: all .4s;
-    -webkit-transition: all .4s;
-    -o-transition: all .4s;
+#foreground .no-weapons {
+    transition: opacity 0.4s ease-out;
+    -moz-transition: opacity 0.4s ease-out;
+    -webkit-transition: opacity 0.4s ease-out;
+    -o-transition: opacity 0.4s ease-out;
 }
+
+#foreground .weapons {
+    transition: opacity 0.4s ease-out;
+    -moz-transition: opacity 0.4s ease-out;
+    -webkit-transition: opacity 0.4s ease-out;
+    -o-transition: opacity 0.4s ease-out;
+}
+/*#foreground .no-weapons {
+
+}
+
+#foreground.weapons {
+    opacity: 1;
+    background-image: url(../images/frenemy/foreground-weapons.png);
+    
+    transition: opacity 0.4s ease-in;
+    -moz-transition: opacity 0.4s ease-in;
+    -webkit-transition: opacity 0.4s ease-in;
+    -o-transition: opacity 0.4s ease-in;
+}*/
     
 #toggle {
 /*    background: url(../images/frenemy/toggle-label.png) 0px 5px scroll no-repeat transparent;*/

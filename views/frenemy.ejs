@@ -164,7 +164,10 @@
 
     <div id="wrap">
             
-        <div id="foreground" class="no-weapons"></div>
+        <div id="foreground">
+            <img class="no-weapons" src="images/frenemy/foreground.png" />
+            <img class="weapons" src="images/frenemy/foreground-weapons.png" style="opacity: 0;" />
+        </div>
         
         <div id="toggle">
             <a href="javascript:return%20void(0);" class="toggle-translator off"></a>
@@ -221,14 +224,18 @@
                         $(this).removeClass('off').addClass('on');
 //                        z.removeClass().addClass('on');
                         z.css({'cursor' : 'none'});
-                        f.removeClass('no-weapons').addClass('weapons');
+//                        f.removeClass('no-weapons').addClass('weapons');
+                        f.find('.no-weapons').css({opacity: 0});
+                        f.find('.weapons').css({opacity: 1});
                         m.css({ opacity: 0 });
                         t.playOpeningSequence();
                     } else {
                         z.removeClass().addClass('off');
                         $(this).removeClass('on').addClass('off');
                         z.css({'cursor' : 'auto'});
-                        f.removeClass('weapons').addClass('no-weapons');
+//                        f.removeClass('weapons').addClass('no-weapons');
+                        f.find('.no-weapons').css({opacity: 1});
+                        f.find('.weapons').css({opacity: 0});
                         m.css({ left: -500 });
                     }
                     
