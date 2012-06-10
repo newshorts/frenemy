@@ -113,7 +113,7 @@
         
     </script>
         
-        
+    <script type="text/javascript" src="scripts/translator.js"></script>
     
 
     <!--[if IE]>
@@ -167,7 +167,8 @@
         <div id="foreground" class="no-weapons"></div>
         
         <div id="toggle">
-            <a href="https://www.youtube.com/watch?v=ItwrdDcenSs" id="media"></a>
+            <a href="javascript:return%20void(0);" class="toggle-translator off"></a>
+<!--            <a href="https://www.youtube.com/watch?v=ItwrdDcenSs" id="media"></a>-->
 <!--            <img class="toggle toggle-on" src="images/frenemy/translator_on.png" />
             <img class="toggle toggle-off" src="images/frenemy/translator_off.png" />
             <a href="#" class="toggle-click"></a>-->
@@ -182,6 +183,26 @@
     <script type="text/javascript">
         (function($) {
             $(window).load(function() {
+                
+                var t = new Translator();
+                t.init();
+                
+//                var animateTranslator = function(m) {
+//                    m.removeClass('hidden');
+//                    m.css({
+//                        'opacity': 1,
+//                        top: 100,
+//                        left: -200
+//                    });
+//                    m.animate({
+//                        left: '+=400'
+//                        
+//                    }, 1000, function() {
+//                        // Animation complete.
+//                        m.addClass('hidden');
+//                    });
+//                }
+                
                 var off = true;
                 
                 // lazy load some images
@@ -191,6 +212,31 @@
                 
                 var z = $("#translator-window").contents().find("#zoomer");
                 var f = $("#foreground");
+                var m = $("#translator-window").contents().find("#mag");
+                
+                $('.toggle-translator').on('click', function(evt) {
+                    evt.preventDefault();
+                    
+                    if($(this).hasClass('off')) {
+                        $(this).removeClass('off').addClass('on');
+//                        z.removeClass().addClass('on');
+                        z.css({'cursor' : 'none'});
+                        f.removeClass('no-weapons').addClass('weapons');
+                        m.css({ opacity: 0 });
+                        t.playOpeningSequence();
+                    } else {
+                        z.removeClass().addClass('off');
+                        $(this).removeClass('on').addClass('off');
+                        z.css({'cursor' : 'auto'});
+                        f.removeClass('weapons').addClass('no-weapons');
+                        m.css({ left: -500 });
+                    }
+                    
+//                    m.toggle();
+                    
+                    
+                    $("#translator-window").contents().find(".big-window").toggle();
+                });
                 
                 // taken out june 8th at 4:39PM in favor of hover effect
 //                $('.toggle-click').click(function() {
@@ -215,26 +261,26 @@
 //                    
 //                });
                 
-                var zoomer = z;
-                
-                $('#translator-window').hover(function(evt) {
-                    // in
-                    zoomer.css({'cursor' : 'none'});
-                    f.removeClass('no-weapons');
-                    f.addClass('weapons');
-                    
-                    $("#translator-window").contents().find("#mag").toggle();
-                    $("#translator-window").contents().find(".big-window").toggle();
-                    
-                }, function(evt) {
-                    // out
-                    zoomer.css({'cursor' : 'default'});
-                    f.removeClass('weapons');
-                    f.addClass('no-weapons');
-                    
-                    $("#translator-window").contents().find("#mag").toggle();
-                    $("#translator-window").contents().find(".big-window").toggle();
-                });
+//                var zoomer = z;
+                // removed 6.9.12 at 2:30PM in favor of a clickable button
+//                $('#translator-window').hover(function(evt) {
+//                    // in
+//                    zoomer.css({'cursor' : 'none'});
+//                    f.removeClass('no-weapons');
+//                    f.addClass('weapons');
+//                    
+//                    $("#translator-window").contents().find("#mag").toggle();
+//                    $("#translator-window").contents().find(".big-window").toggle();
+//                    
+//                }, function(evt) {
+//                    // out
+//                    zoomer.css({'cursor' : 'default'});
+//                    f.removeClass('weapons');
+//                    f.addClass('no-weapons');
+//                    
+//                    $("#translator-window").contents().find("#mag").toggle();
+//                    $("#translator-window").contents().find(".big-window").toggle();
+//                });
                 
             });
         })(jQuery);

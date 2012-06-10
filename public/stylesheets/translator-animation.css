@@ -1,0 +1,49 @@
+/* 
+    Document   : translator-animation
+    Created on : Jun 9, 2012, 6:10:08 PM
+    Author     : newe1344
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#mag.slide-in {
+    transition: left .7s ease-in;
+    -moz-transition: left .7s ease-in; 
+    -webkit-transition: left .7s ease-in;
+    -o-transition: left .7s ease-in;
+}
+
+#mag.fade-in {
+    transition: opacity .2s ease-in;
+    -moz-transition: opacity .2s ease-in; 
+    -webkit-transition: opacity .2s ease-in;
+    -o-transition: opacity .2s ease-in;
+}
+    
+#mag.play-fuzz {
+    animation: anim2 .1s step-end infinite;
+    -webkit-animation: anim2 .1s step-end infinite;
+    -moz-animation: anim2 .1s step-end infinite;
+    -ms-animation: anim2 .1s step-end infinite;
+}
+
+    @keyframes anim2 {
+        0% { background-position: 0px 0px; }
+        50% { background-position: -323px 0px; }
+    }
+
+    @-webkit-keyframes anim2 {
+        0% { background-position: 0px 0px; }
+        50% { background-position: -323px 0px; }
+    }
+
+    @-moz-keyframes anim2 {
+        0% { background-position: 0px 0px; }
+        50% { background-position: -323px 0px; }
+    }
+
+    @-ms-keyframes anim2 {
+        0% { background-position: 0px 0px; }
+        50% { background-position: -323px 0px; }
+    }
+

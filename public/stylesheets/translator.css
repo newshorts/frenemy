@@ -54,15 +54,21 @@ body {
 #mag {
     opacity: 0;
 /*    width: 134px;*/
-    width: 183px;
+/*    width: 183px;*/
+    width: 323px;
     position: absolute;
+    top: 100px;
+/*    left: -200px;*/
     
     transition: opacity .4s;
-    -moz-transition: opacity .4s;
-    -webkit-transition: opacity .4s;
-    -o-transition: opacity .4s;
-    
+    -moz-transition: opacity  .4s;
+    -webkit-transition: opacity  .4s;
+    -o-transition: opacity  .4s;
+   
     cursor: none;
+    
+    background: url(../images/frenemy/fuzz-sprite.png) scroll no-repeat transparent;
+    background-position: 500px 500px;
 }
 
 /*******************************************************************************

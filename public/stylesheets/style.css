@@ -106,18 +106,25 @@ h4 {
     
 #toggle {
 /*    background: url(../images/frenemy/toggle-label.png) 0px 5px scroll no-repeat transparent;*/
-    width: 130px;
+    /* removed 6.9.12 in favor of new styles for a button toggle */
+/*    width: 130px;
     height: 25px;
     position: relative;
     top: 35px;
-    left: 605px;
+    left: 605px;*/
+
+    position: relative;
+    width: 162px;
+    height: 40px;
+    top: 22px;
+    left: 563px;
 }  
 
-#toggle a {
+/*#toggle a {
     width: 200px;
     height: 20px;
     display: block;
-}
+}*/
 
 .toggle {
     position: absolute;
@@ -132,7 +139,24 @@ h4 {
     width: 45px;
     height: 20px;
     top: 2px;
-    left: 86px;=
+    left: 86px;
+}
+
+.toggle-translator {
+    display: block;
+    position: absolute;
+    width: 162px;
+    height: 40px;
+    top: 0;
+    left: 0;
+}
+
+.toggle-translator.off {
+    background: url(../images/frenemy/trans-button-off.png) scroll no-repeat;
+}
+
+.toggle-translator.on {
+    background: url(../images/frenemy/trans-button-on.png) scroll no-repeat;
 }
 
 #translator-window {

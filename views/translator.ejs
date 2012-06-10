@@ -8,20 +8,22 @@
     
     <link type="text/css" href="stylesheets/jquery.jscrollpane.css" rel="stylesheet" media="all" />
     <link rel="stylesheet" type="text/css" href="stylesheets/translator.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/translator-animation.css" />
 
   </head>
   <body>
-    <div id="zoomer">
+    <div id="zoomer" class="off">
 
         <div class="small-window">
             <img class="small-image" src="images/frenemy/friend.png" alt="small lorizzle" />
         </div>
 
         <div class="big-window hidden">
+            
             <img class="big-image" src="images/frenemy/enemy.png" alt="big lorizzle" />
         </div>
 
-        <img src="images/frenemy/translator-square.png" alt="" id="mag" class="hidden" />
+        <img src="images/frenemy/translator-square.png" alt="Translator PNG" id="mag" class="hidden" />
 
         <div id="zoomer-spacer"></div>
 
@@ -57,8 +59,8 @@
                 // doesn't work in safari
                 // porthole is smaller than the image becuase its the inner border
                 portholeG.css({
-                    width: 156,
-                    height: 87
+                    width: 293,
+                    height: 84
 //                    width: diameterG,
 //                    height: diameterG,
 //                    "border-radius": radiusG + 'px',
@@ -85,55 +87,57 @@
 
                 // as soon as someone starts moving the mouse over #zoomer
                 zoomerG.on('mousemove', function(evt) {
+                    
+                    if(zoomerG.hasClass('on')) {
+                        var zoomer = zoomerG,
+                            porthole = portholeG,
+                            secondImage = secondImageG,
+                            magImage = magImageG,
+                            diameter = diameterG,
+                            radius = radiusG,
+                            oPane = oPaneG,
+                            oLeft = oLeftG,
+                            oTop = oTopG;
 
-                    var zoomer = zoomerG,
-                        porthole = portholeG,
-                        secondImage = secondImageG,
-                        magImage = magImageG,
-                        diameter = diameterG,
-                        radius = radiusG,
-                        oPane = oPaneG,
-                        oLeft = oLeftG,
-                        oTop = oTopG;
+    //                    console.debug(oPane);
 
-//                    console.debug(oPane);
+                        // get the position of the mouse over #zoomer
+                        var posLeft = (evt.pageX - oLeft);
+                        var posTop = (((evt.pageY - oTop) - oPane));
 
-                    // get the position of the mouse over #zoomer
-                    var posLeft = (evt.pageX - oLeft);
-                    var posTop = (((evt.pageY - oTop) - oPane));
+                        // detect whether or not the mouse has moved past the left or right barriers of #zoomer
+                        var limitLeft = ((posLeft - radius) > - radius) ? false : true;
+                        var limitRight = ((posLeft + radius) < (625 + radius)) ? false : true;
 
-                    // detect whether or not the mouse has moved past the left or right barriers of #zoomer
-                    var limitLeft = ((posLeft - radius) > - radius) ? false : true;
-                    var limitRight = ((posLeft + radius) < (625 + radius)) ? false : true;
+                        // if we're in bounds of #zoomer
+                        if(!limitLeft && !limitRight) {
 
-                    // if we're in bounds of #zoomer
-                    if(!limitLeft && !limitRight) {
+                            // account for the radius of the "porthole"
+                            var posTop = posTop - radius;
+                            var posLeft = posLeft - radius;
 
-                        // account for the radius of the "porthole"
-                        var posTop = posTop - radius;
-                        var posLeft = posLeft - radius;
+                            // move the porthole to the mouse's position
+                            porthole.css({
+                                top: posTop,
+                                left: posLeft,
+                                opacity: 1
+                            });
 
-                        // move the porthole to the mouse's position
-                        porthole.css({
-                            top: posTop,
-                            left: posLeft,
-                            opacity: 1
-                        });
+                            // adjust the second image so it moves opposite the mouse movement (so it looks like its staying still)
+                            secondImage.css({
+                                top: -1 * (posTop),
+                                left: -1 * (posLeft)
+                            });
 
-                        // adjust the second image so it moves opposite the mouse movement (so it looks like its staying still)
-                        secondImage.css({
-                            top: -1 * (posTop),
-                            left: -1 * (posLeft)
-                        });
+                            // move the magnifying glass with the mouse
+                            magImage.css({
+                                top: posTop - 17,
+                                left: posLeft - 17,
+                                opacity: 1
+                            });
 
-                        // move the magnifying glass with the mouse
-                        magImage.css({
-                            top: posTop - 14,
-                            left: posLeft - 17,
-                            opacity: 1
-                        });
-
-                    } 
+                        } 
+                    }
 
                 });
 
