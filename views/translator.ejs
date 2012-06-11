@@ -41,7 +41,6 @@
 
                 App.init();
                 
-                console.log("init jscrollpane");
                 $('#zoomer').jScrollPane();
 
                 // grab the elements and do some calculations on the size of the "porthole", then set the porthole
@@ -82,13 +81,13 @@
                     
                     var p = $('.small-window').position();
                     
-                    console.log(p.top);
                 });
 
                 // as soon as someone starts moving the mouse over #zoomer
                 zoomerG.on('mousemove', function(evt) {
                     
                     if(zoomerG.hasClass('on')) {
+                        console.log('sanity check');
                         var zoomer = zoomerG,
                             porthole = portholeG,
                             secondImage = secondImageG,
