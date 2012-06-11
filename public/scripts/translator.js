@@ -109,7 +109,7 @@
                         zoomer.removeClass().addClass('on');
                         console.log('sanity - transition ended and setting zoomerG to on');
                         
-                    }, 500);
+                    }, 50);
                 }
                 
             }, 50);
