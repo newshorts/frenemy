@@ -38,6 +38,7 @@
                     
                     target.removeClass();
                     zoomer.removeClass().addClass('on');
+                    console.log('sanity - finished intro animation and added class "on" to the translator zoomer')
                     
 //                    setTimeout(function() {
 //                        target.removeClass();
