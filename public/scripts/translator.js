@@ -38,7 +38,7 @@
                     
                     target.removeClass();
                     zoomer.removeClass().addClass('on');
-                    console.log('sanity - finished intro animation and added class "on" to the translator zoomer')
+                    console.log('sanity - finished intro animation and added class "on" to the translator zoomer');
                     
 //                    setTimeout(function() {
 //                        target.removeClass();
@@ -51,7 +51,7 @@
             mag.on('animationend webkitAnimationEnd MSAnimationEnd', function(evt) {
                 
                 var target = $(evt.currentTarget);
-                console.log('sanity - animation end')
+                console.log('sanity - animation end');
                 
             });
         };
@@ -75,6 +75,7 @@
                     opacity: 1
                 });    
                 console.log('sanity - timeout function');
+                
             }, 50);
             
             console.log('sanity - end of init sequence');
