@@ -101,7 +101,7 @@
                             left: -115
                         });
 
-                        mag.removeClass();
+                        mag.removeClass().addClass('hidden');
                         zoomer.removeClass().addClass('on');
                         console.log('sanity - transition ended and setting zoomerG to on');
                         
