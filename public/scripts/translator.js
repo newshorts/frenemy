@@ -12,14 +12,14 @@
             secondImage;
         
         this.init = function() {
-            console.debug('sanity - translator init')
+            console.log('sanity - translator init')
             mag = $("#translator-window").contents().find("#mag");
             zoomer = $("#translator-window").contents().find("#zoomer");
             porthole = $("#translator-window").contents().find(".big-window");
             secondImage = $("#translator-window").contents().find(".big-image");
             
             mag.on('transitionend webkitTransitionEnd oTransitionEnd msTransitionEnd', function(evt) {
-                console.debug('sanity - transition ended');
+                console.log('sanity - transition ended');
                 
                 var target = $(evt.currentTarget);
                 
@@ -50,13 +50,13 @@
             mag.on('animationend webkitAnimationEnd MSAnimationEnd', function(evt) {
                 
                 var target = $(evt.currentTarget);
-                console.debug('sanity - animation end')
+                console.log('sanity - animation end')
                 
             });
         };
 
         this.playOpeningSequence = function() {
-            console.debug('sanity - play sequence');
+            console.log('sanity - play sequence');
             zoomer.removeClass().addClass('off');
             mag.removeClass();
             mag.addClass('fade-in play-fuzz');

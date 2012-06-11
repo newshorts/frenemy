@@ -8,7 +8,7 @@ var App = {
     
     init: function() {
         
-        console.debug("init the app");
+        console.log("init the app");
         
     }
     
