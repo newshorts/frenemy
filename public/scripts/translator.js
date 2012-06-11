@@ -100,6 +100,10 @@
                             top: -100,
                             left: -115
                         });
+                        
+                        mag.css({
+                            opacity: 1
+                        });
 
                         mag.removeClass().addClass('hidden');
                         zoomer.removeClass().addClass('on');
