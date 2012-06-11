@@ -70,11 +70,43 @@
                 display: 'block'
             });
             console.log('sanity - end css and classes');
+            
             setTimeout(function() {
-                mag.css({
-                    opacity: 1
-                });    
-                console.log('sanity - timeout function');
+                
+//                console.dir(Modernizr)
+                if(Modernizr.csstransitions) {
+                    console.log('sanity - browser supports css transitions');
+                    mag.css({
+                        opacity: 1
+                    });    
+                    
+                } else {
+                    console.log('sanity - browser doesnt support css transitions');
+                    
+                    setTimeout(function() {
+                        
+                        mag = $("#translator-window").contents().find("#mag");
+                        zoomer = $("#translator-window").contents().find("#zoomer");
+                        porthole = $("#translator-window").contents().find(".big-window");
+                        secondImage = $("#translator-window").contents().find(".big-image");
+                        
+                        porthole.css({
+                            top: 100,
+                            left: 115,
+                            opacity: 1
+                        });
+
+                        secondImage.css({
+                            top: -100,
+                            left: -115
+                        });
+
+                        mag.removeClass();
+                        zoomer.removeClass().addClass('on');
+                        console.log('sanity - transition ended and setting zoomerG to on');
+                        
+                    }, 500);
+                }
                 
             }, 50);
             
