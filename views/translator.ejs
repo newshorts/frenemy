@@ -87,7 +87,7 @@
                 zoomerG.on('mousemove', function(evt) {
                     
                     if(zoomerG.hasClass('on')) {
-                        console.log('sanity check');
+                        console.log('sanity - init translator event to track mouse');
                         var zoomer = zoomerG,
                             porthole = portholeG,
                             secondImage = secondImageG,
@@ -136,6 +136,7 @@
                             });
 
                         } 
+                        console.log('sanity - end translator event');
                     }
 
                 });
