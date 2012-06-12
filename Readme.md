@@ -48,5 +48,9 @@ passed to functions that handle the request and finally server the page. Awesome
                                     TODO
 ################################################################################
 
-1. Fix safari bug that denies border radius in safari
-2. Chrome has bug where mouse cursor stays active if you hover over #zoomer immediately after clicking toggle
+1. Move all images and assets to CDN and clean up the image directory
+2. Preload all the images for faster performance
+3. Compress scripts
+4. Combine scripts
+5. Make fake tab and test on facebook
+6. Load
