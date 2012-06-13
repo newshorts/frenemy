@@ -1,3 +1,9 @@
+/* 
+ *  @author Mike Newell
+ *  @company Goodby Silverstein & Partners
+ *  © 2012
+ */
+
 /*******************************************************************************
                                     Zoomer
 *******************************************************************************/
@@ -13,24 +19,16 @@ img {
 #zoomer {
     position: absolute;
     width: 621px;
-/*    height: 934px;*/
-/*    height: 399px;*/
-/*    height: 403px;*/
     height: 412px;
     top: 0px;
     left: 0px;
     
-    
-    
-
 }
 
 .small-image {
     position: absolute;
     top: 0;
     left: 0;
-/*    width: 625px;
-    height: 934px;*/
 }
 
 .big-image {
@@ -57,12 +55,9 @@ img {
 
 #mag {
     opacity: 0;
-/*    width: 134px;*/
-/*    width: 183px;*/
     width: 323px;
     position: absolute;
     top: 100px;
-/*    left: -200px;*/
     
     transition: opacity .4s;
     -moz-transition: opacity  .4s;
@@ -71,7 +66,7 @@ img {
    
     cursor: none;
     
-    background: url(../images/frenemy/fuzz-sprite.png) scroll no-repeat transparent;
+    background: url(https://s3.amazonaws.com/GSP/frenemy/images/fuzz-sprite.png) scroll no-repeat transparent;
     background-position: 500px 500px;
 }
 
@@ -95,3 +90,48 @@ img {
 .hidden {
     display: none;
 }
+
+/*******************************************************************************
+                                    ANIMATION
+*******************************************************************************/
+
+#mag.slide-in {
+    transition: left .7s ease-in;
+    -moz-transition: left .7s ease-in; 
+    -webkit-transition: left .7s ease-in;
+    -o-transition: left .7s ease-in;
+}
+
+#mag.fade-in {
+    transition: opacity .7s ease-out;
+    -moz-transition: opacity .7s ease-out; 
+    -webkit-transition: opacity .7s ease-out;
+    -o-transition: opacity .7s ease-out;
+}
+    
+#mag.play-fuzz {
+    animation: anim2 .1s step-end infinite;
+    -webkit-animation: anim2 .1s step-end infinite;
+    -moz-animation: anim2 .1s step-end infinite;
+    -ms-animation: anim2 .1s step-end infinite;
+}
+
+    @keyframes anim2 {
+        0% { background-position: 0px 0px; }
+        50% { background-position: -323px 0px; }
+    }
+
+    @-webkit-keyframes anim2 {
+        0% { background-position: 0px 0px; }
+        50% { background-position: -323px 0px; }
+    }
+
+    @-moz-keyframes anim2 {
+        0% { background-position: 0px 0px; }
+        50% { background-position: -323px 0px; }
+    }
+
+    @-ms-keyframes anim2 {
+        0% { background-position: 0px 0px; }
+        50% { background-position: -323px 0px; }
+    }

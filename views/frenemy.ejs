@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
 
     <title><%= app.name %></title>
-    <link rel="stylesheet" href="stylesheets/screen.css" media="Screen" type="text/css" />
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" type="text/css" />
-    <link rel="stylesheet" href="stylesheets/style.css" media="Screen" type="text/css" />
+<!--    <link rel="stylesheet" href="stylesheets/screen.css" media="Screen" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" type="text/css" />-->
+    <link rel="stylesheet" href="https://s3.amazonaws.com/GSP/frenemy/css/style.css" media="Screen" type="text/css" />
     
     <!--[if IEMobile]>
     <link rel="stylesheet" href="mobile.css" media="screen" type="text/css"  />
     <![endif]-->
 
-    <!-- These are Open Graph tags.  They add meta data to your  -->
-    <!-- site that facebook uses when your content is shared     -->
-    <!-- over facebook.  You should fill these tags in with      -->
-    <!-- your data.  To learn more about Open Graph, visit       -->
     <!-- 'https://developers.facebook.com/docs/opengraph/'       -->
     <meta property="og:title" content="<%= app.name %>" />
     <meta property="og:type" content="website" />
@@ -26,98 +22,11 @@
     <meta property="og:description" content="My first app" />
     <meta property="fb:app_id" content="<%= app.id %>" />
 
-    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
-
-    <script type="text/javascript">
-      function logResponse(response) {
-        if (console && console.log) {
-          console.log('The response was', response);
-        }
-      }
-
-      $(function(){
-        // Set up so we handle click on the buttons
-        $('#postToWall').click(function() {
-          FB.ui(
-            {
-              method : 'feed',
-              link   : $(this).attr('data-url')
-            },
-            function (response) {
-              // If response is null the user canceled the dialog
-              if (response != null) {
-                logResponse(response);
-              }
-            }
-          );
-        });
-
-        $('#sendToFriends').click(function() {
-          FB.ui(
-            {
-              method : 'send',
-              link   : $(this).attr('data-url')
-            },
-            function (response) {
-              // If response is null the user canceled the dialog
-              if (response != null) {
-                logResponse(response);
-              }
-            }
-          );
-        });
-
-        $('#sendRequest').click(function() {
-          FB.ui(
-            {
-              method  : 'apprequests',
-              message : $(this).attr('data-message')
-            },
-            function (response) {
-              // If response is null the user canceled the dialog
-              if (response != null) {
-                logResponse(response);
-              }
-            }
-          );
-        });
-      });
-    </script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<!--    <script type="text/javascript" src="https://s3.amazonaws.com/GSP/frenemy/js/modernizr.js"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/GSP/frenemy/js/translator.js"></script>-->
+    <script src="https://s3.amazonaws.com/GSP/frenemy/js/amalgam.js"></script>
     
-    <!-- Add fancyBox -->
-    <script type="text/javascript" src="scripts/fancy/jquery.mousewheel-3.0.6.pack.js"></script>
-    <link rel="stylesheet" href="scripts/fancy/jquery.fancybox.css?v=2.0.6" type="text/css" media="screen" />
-    <script type="text/javascript" src="scripts/fancy/jquery.fancybox.pack.js?v=2.0.6"></script>
-
-    <!-- Optionally add helpers - button, thumbnail and/or media -->
-    <link rel="stylesheet" href="scripts/fancy/helpers/jquery.fancybox-buttons.css?v=1.0.2" type="text/css" media="screen" />
-    <script type="text/javascript" src="scripts/fancy/helpers/jquery.fancybox-buttons.js?v=1.0.2"></script>
-    <script type="text/javascript" src="scripts/fancy/helpers/jquery.fancybox-media.js?v=1.0.0"></script>
-
-    <link rel="stylesheet" href="scripts/fancy/helpers/jquery.fancybox-thumbs.css?v=2.0.6" type="text/css" media="screen" />
-    <script type="text/javascript" src="scripts/fancy/helpers/jquery.fancybox-thumbs.js?v=2.0.6"></script>
-    
-    <script type="text/javascript" src="scripts/modernizr.js"></script>
-    
-    <script>
-        
-        $('#media').fancybox({
-		openEffect  : 'none',
-		closeEffect : 'none',
-                padding: 0,
-		helpers : {
-			media : {
-                            width: 560,
-                            height: 315
-                        }
-		}
-	});
-        
-    </script>
-        
-    <script type="text/javascript" src="scripts/translator.js"></script>
-    
-
     <!--[if IE]>
       <script type="text/javascript">
         var tags = ['header', 'section'];
@@ -163,20 +72,16 @@
     </script>
 
     
-
-    <div id="wrap">
+    <div id="preloader"></div>
+    <div id="wrap" class="unloaded">
             
         <div id="foreground">
-            <img class="no-weapons" src="images/frenemy/foreground.png" />
-            <img class="weapons" src="images/frenemy/foreground-weapons.png" style="opacity: 0;" />
+            <img class="no-weapons" src="https://s3.amazonaws.com/GSP/frenemy/images/foreground.png" />
+            <img class="weapons" src="https://s3.amazonaws.com/GSP/frenemy/images/foreground-weapons.png" style="opacity: 0;" />
         </div>
         
         <div id="toggle">
             <a href="javascript:return%20void(0);" class="toggle-translator off"></a>
-<!--            <a href="https://www.youtube.com/watch?v=ItwrdDcenSs" id="media"></a>-->
-<!--            <img class="toggle toggle-on" src="images/frenemy/translator_on.png" />
-            <img class="toggle toggle-off" src="images/frenemy/translator_off.png" />
-            <a href="#" class="toggle-click"></a>-->
         </div>
 
         <iframe id="translator-window" src="translator" width="621" height="413"></iframe>
@@ -186,35 +91,32 @@
     </div>
 
     <script type="text/javascript">
+       /* 
+        *  @author Mike Newell
+        *  @company Goodby Silverstein & Partners
+        *  © 2012
+        */
         (function($) {
             $(window).load(function() {
+                
+                $('#preloader').remove();
+                $('#wrap').removeClass('unloaded');
                 
                 var t = new Translator();
                 t.init();
                 
-//                var animateTranslator = function(m) {
-//                    m.removeClass('hidden');
-//                    m.css({
-//                        'opacity': 1,
-//                        top: 100,
-//                        left: -200
-//                    });
-//                    m.animate({
-//                        left: '+=400'
-//                        
-//                    }, 1000, function() {
-//                        // Animation complete.
-//                        m.addClass('hidden');
-//                    });
-//                }
-                
                 var off = true;
                 
                 // lazy load some images
-                $('#wrap').prepend('<img src="images/frenemy/foreground-weapons.png" style="opacity: 0; position: absolute; top: 0; left: 0; z-index: -1;"/>');
+                setTimeout(function() {
+                    $('#wrap').prepend('<img src="https://s3.amazonaws.com/GSP/frenemy/images/foreground-weapons.png" style="opacity: 0; position: absolute; top: 0; left: 0; z-index: -1;"/>');
+                    $('#wrap').prepend('<img src="https://s3.amazonaws.com/GSP/frenemy/images/translator-square.png" style="opacity: 0; position: absolute; top: 0; left: 0; z-index: -1;"/>');
+                    $('#wrap').prepend('<img src="https://s3.amazonaws.com/GSP/frenemy/images/fuzz-sprite.png" style="opacity: 0; position: absolute; top: 0; left: 0; z-index: -1;"/>');
+                    $('#wrap').prepend('<img src="https://s3.amazonaws.com/GSP/frenemy/images/trans-button-on.png" style="opacity: 0; position: absolute; top: 0; left: 0; z-index: -1;"/>');
+                }, 1000);
+                    
                 
                 // events
-                
                 var z = $("#translator-window").contents().find("#zoomer");
                 var f = $("#foreground");
                 var m = $("#translator-window").contents().find("#mag");
@@ -224,9 +126,7 @@
                     
                     if($(this).hasClass('off')) {
                         $(this).removeClass('off').addClass('on');
-//                        z.removeClass().addClass('on');
                         z.css({'cursor' : 'none'});
-//                        f.removeClass('no-weapons').addClass('weapons');
                         f.find('.no-weapons').css({opacity: 0});
                         f.find('.weapons').css({opacity: 1});
                         m.css({ opacity: 0 });
@@ -235,61 +135,13 @@
                         z.removeClass().addClass('off');
                         $(this).removeClass('on').addClass('off');
                         z.css({'cursor' : 'auto'});
-//                        f.removeClass('weapons').addClass('no-weapons');
                         f.find('.no-weapons').css({opacity: 1});
                         f.find('.weapons').css({opacity: 0});
                         m.css({ left: -500 });
                     }
                     
-//                    m.toggle();
-                    
-                    
                     $("#translator-window").contents().find(".big-window").toggle();
                 });
-                
-                // taken out june 8th at 4:39PM in favor of hover effect
-//                $('.toggle-click').click(function() {
-//                    
-//                    var zoomer = z;
-//                    // chrome doesnt fade out mouse sometimes
-//                    if(off) {
-//                        zoomer.css({'cursor' : 'none'});
-//                        f.removeClass('no-weapons');
-//                        f.addClass('weapons');
-//                    } else {
-//                        zoomer.css({'cursor' : 'default'});
-//                        f.removeClass('weapons');
-//                        f.addClass('no-weapons');
-//                    }
-//                    
-//                    $('.toggle-off').toggle();
-//                    $("#translator-window").contents().find("#mag").toggle();
-//                    $("#translator-window").contents().find(".big-window").toggle();
-//                    
-//                    off = (off) ? false : true;
-//                    
-//                });
-                
-//                var zoomer = z;
-                // removed 6.9.12 at 2:30PM in favor of a clickable button
-//                $('#translator-window').hover(function(evt) {
-//                    // in
-//                    zoomer.css({'cursor' : 'none'});
-//                    f.removeClass('no-weapons');
-//                    f.addClass('weapons');
-//                    
-//                    $("#translator-window").contents().find("#mag").toggle();
-//                    $("#translator-window").contents().find(".big-window").toggle();
-//                    
-//                }, function(evt) {
-//                    // out
-//                    zoomer.css({'cursor' : 'default'});
-//                    f.removeClass('weapons');
-//                    f.addClass('no-weapons');
-//                    
-//                    $("#translator-window").contents().find("#mag").toggle();
-//                    $("#translator-window").contents().find(".big-window").toggle();
-//                });
                 
             });
         })(jQuery);

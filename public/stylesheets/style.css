@@ -66,12 +66,18 @@ h4 {
 *******************************************************************************/
 
 #wrap {
-    background: url(../images/frenemy/background.png) 107px 76px scroll no-repeat black;
+    background: url(https://s3.amazonaws.com/GSP/frenemy/images/background.png) 107px 76px scroll no-repeat black;
     width: 810px;
     margin: 0 auto;
     position: relative;
     min-height: 821px;
     left: -50px;
+    opacity: 1;
+    
+    transition: opacity 1s ease-in-out;
+    -moz-transition: opacity  1s ease-in-out;
+    -webkit-transition: opacity  1s ease-in-out;
+    -o-transition: opacity  1s ease-in-out;
     /*
         
         NOTE: cursors are limited to 128x128 so I can't use the image below
@@ -234,11 +240,11 @@ h4 {
 }
 
 .toggle-translator.off {
-    background: url(../images/frenemy/trans-button-off.png) scroll no-repeat;
+    background: url(https://s3.amazonaws.com/GSP/frenemy/images/trans-button-off.png) scroll no-repeat;
 }
 
 .toggle-translator.on {
-    background: url(../images/frenemy/trans-button-on.png) scroll no-repeat;
+    background: url(https://s3.amazonaws.com/GSP/frenemy/images/trans-button-on.png) scroll no-repeat;
 }
 
 #translator-window {
@@ -251,7 +257,7 @@ h4 {
 }
 
 #fangs {
-    background: url(../images/frenemy/fangs.png) scroll no-repeat transparent;
+    background: url(https://s3.amazonaws.com/GSP/frenemy/images/fangs.png) scroll no-repeat transparent;
     width: 810px;
     height: 40px;
     position: absolute;
@@ -259,3 +265,25 @@ h4 {
     left: 0;
 }
 
+/*
+    preloader
+*/
+
+#preloader {
+    
+    background: url(https://s3.amazonaws.com/GSP/frenemy/images/ajax-loader.gif) 52% 45% scroll no-repeat black;
+    width: 810px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 821px;
+    left: -50px;
+    z-index: 999;
+}
+
+#wrap.unloaded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+}

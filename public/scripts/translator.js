@@ -1,6 +1,7 @@
 /* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ *  @author Mike Newell
+ *  @company Goodby Silverstein & Partners
+ *  © 2012
  */
 
 (function(window) {
@@ -12,14 +13,12 @@
             secondImage;
         
         this.init = function() {
-            console.log('sanity - translator init')
             mag = $("#translator-window").contents().find("#mag");
             zoomer = $("#translator-window").contents().find("#zoomer");
             porthole = $("#translator-window").contents().find(".big-window");
             secondImage = $("#translator-window").contents().find(".big-image");
             
             mag.on('transitionend webkitTransitionEnd oTransitionEnd msTransitionEnd', function(evt) {
-                console.log('sanity - transition ended');
                 
                 var target = $(evt.currentTarget);
                 
@@ -38,12 +37,7 @@
                     
                     target.removeClass();
                     zoomer.removeClass().addClass('on');
-                    console.log('sanity - finished intro animation and added class "on" to the translator zoomer');
                     
-//                    setTimeout(function() {
-//                        target.removeClass();
-//                        zoomer.removeClass().addClass('on');
-//                    }, 200);
                 }
                 
             });
@@ -51,13 +45,11 @@
             mag.on('animationend webkitAnimationEnd MSAnimationEnd', function(evt) {
                 
                 var target = $(evt.currentTarget);
-                console.log('sanity - animation end');
                 
             });
         };
 
         this.playOpeningSequence = function() {
-            console.log('sanity - play sequence');
             zoomer.removeClass().addClass('off');
             
             mag.removeClass();
@@ -69,19 +61,15 @@
                 opacity: 0,
                 display: 'block'
             });
-            console.log('sanity - end css and classes');
             
             setTimeout(function() {
                 
-//                console.dir(Modernizr)
                 if(Modernizr.csstransitions) {
-                    console.log('sanity - browser supports css transitions');
                     mag.css({
                         opacity: 1
                     });    
                     
                 } else {
-                    console.log('sanity - browser doesnt support css transitions');
                     
                     setTimeout(function() {
                         
@@ -107,23 +95,11 @@
 
                         mag.removeClass().addClass('hidden');
                         zoomer.removeClass().addClass('on');
-                        console.log('sanity - transition ended and setting zoomerG to on');
                         
                     }, 50);
                 }
                 
             }, 50);
-            
-            console.log('sanity - end of init sequence');
-            
-//            setTimeout(function() {
-//                mag.removeClass('play-fuzz');
-//            }, 1200);
-            
-//            mag.css({
-//                left: 200
-//            });
-                
             
         };
     };
