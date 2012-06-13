@@ -139,19 +139,23 @@
                     evt.preventDefault();
                     
                     if($(this).hasClass('off')) {
+                        
                         $(this).removeClass('off').addClass('on');
                         z.css({'cursor' : 'none'});
                         f.find('.no-weapons').css({opacity: 0});
                         f.find('.weapons').css({opacity: 1});
                         m.css({ opacity: 0 });
                         t.playOpeningSequence();
+                        _gaq.push(['_trackEvent', 'Translator', 'On', 'Translator Clicked']);
                     } else {
+                        
                         z.removeClass().addClass('off');
                         $(this).removeClass('on').addClass('off');
                         z.css({'cursor' : 'auto'});
                         f.find('.no-weapons').css({opacity: 1});
                         f.find('.weapons').css({opacity: 0});
                         m.css({ left: -500 });
+                        _gaq.push(['_trackEvent', 'Translator', 'Off', 'Translator Clicked']);
                     }
                     
                     $("#translator-window").contents().find(".big-window").toggle();
