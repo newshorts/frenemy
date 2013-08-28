@@ -45,11 +45,23 @@ app.dynamicHelpers({
 
 // render
 function render_page(req, res, tmpl) {
-
+    
     tmpl = tmpl || 'frenemy.ejs';
-
+    
+    console.log('req.facebook.app coming next')
+    console.log(req.facebook)
+    
     req.facebook.app(function(app) {
+        
+        console.log('app coming next')
+        console.log(app)
+        
         req.facebook.me(function(user) {
+            
+            console.log('user and app coming next')
+            console.log(app)
+            console.log(user)
+            
             res.render(tmpl, {
                 layout:    false,
                 req:       req,
@@ -67,7 +79,7 @@ function handle_translator_request(req, res) {
 }
 
 function handle_facebook_request(req, res) {
-
+    
   // if the user is logged in
   if (req.facebook.token) {
 
