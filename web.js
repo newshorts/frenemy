@@ -1,21 +1,28 @@
 //var async   = require('async');
 var express = require('express');
+var app = express();
 var util    = require('util');
 
+app.use(express.logger());
+app.use(express.static(__dirname + '/public'));
+app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(express.session({ secret: process.env.SESSION_SECRET || 'secret123' }));
+
 // create an express webserver
-var app = express.createServer(
-  express.logger(),
-  express.static(__dirname + '/public'),
-  express.bodyParser(),
-  express.cookieParser(),
-  // set this to a secret value to encrypt session cookies
-  express.session({ secret: process.env.SESSION_SECRET || 'secret123' })
-//  require('faceplate').middleware({
-//    app_id: process.env.FACEBOOK_APP_ID,
-//    secret: process.env.FACEBOOK_SECRET,
-//    scope:  'user_likes,user_photos,user_photo_video_tags'
-//  })
-);
+//var app = express.createServer(
+//  ,
+//  ,
+//  ,
+//  ,
+//  // set this to a secret value to encrypt session cookies
+//  
+////  require('faceplate').middleware({
+////    app_id: process.env.FACEBOOK_APP_ID,
+////    secret: process.env.FACEBOOK_SECRET,
+////    scope:  'user_likes,user_photos,user_photo_video_tags'
+////  })
+//);
 
 // listen to the PORT given to us in the environment
 var port = process.env.PORT || 3000;
@@ -24,24 +31,24 @@ app.listen(port, function() {
   console.log("Listening on " + port);
 });
 
-app.dynamicHelpers({
-  'host': function(req, res) {
-    return req.headers['host'];
-  },
-  'scheme': function(req, res) {
-    req.headers['x-forwarded-proto'] || 'http'
-  },
-  'url': function(req, res) {
-    return function(path) {
-      return app.dynamicViewHelpers.scheme(req, res) + app.dynamicViewHelpers.url_no_scheme(path);
-    }
-  },
-  'url_no_scheme': function(req, res) {
-    return function(path) {
-      return '://' + app.dynamicViewHelpers.host(req, res) + path;
-    }
-  }
-});
+//app.dynamicHelpers({
+//  'host': function(req, res) {
+//    return req.headers['host'];
+//  },
+//  'scheme': function(req, res) {
+//    req.headers['x-forwarded-proto'] || 'http'
+//  },
+//  'url': function(req, res) {
+//    return function(path) {
+//      return app.dynamicViewHelpers.scheme(req, res) + app.dynamicViewHelpers.url_no_scheme(path);
+//    }
+//  },
+//  'url_no_scheme': function(req, res) {
+//    return function(path) {
+//      return '://' + app.dynamicViewHelpers.host(req, res) + path;
+//    }
+//  }
+//});
 
 // render
 function render_page(req, res, tmpl) {
