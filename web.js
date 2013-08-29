@@ -48,28 +48,41 @@ function render_page(req, res, tmpl) {
     
     tmpl = tmpl || 'frenemy.ejs';
     
-    console.log('req.facebook.app coming next')
-    console.log(req.facebook)
-    
-    req.facebook.app(function(app) {
-        
-        console.log('app coming next')
-        console.log(app)
-        
-        req.facebook.me(function(user) {
-            
-            console.log('user and app coming next')
-            console.log(app)
-            console.log(user)
-            
             res.render(tmpl, {
                 layout:    false,
                 req:       req,
                 app:       app,
-                user:      user
+//                user:      user
             });
-        });
-    });
+    
+//    console.log('req.facebook.app coming next')
+//    console.log(req.facebook)
+//    
+//    req.facebook.app(function(app) {
+//        
+//        console.log('app coming next')
+//        console.log(app)
+//        
+//        if(app.error !== 'undefined') {
+//            console.log('oops weve found an error')
+//            console.log(app.error)
+//            return;
+//        }
+//        
+//        req.facebook.me(function(user) {
+//            
+//            console.log('user and app coming next')
+//            console.log(app)
+//            console.log(user)
+//            
+//            res.render(tmpl, {
+//                layout:    false,
+//                req:       req,
+//                app:       app,
+//                user:      user
+//            });
+//        });
+//    });
 
 }
 
